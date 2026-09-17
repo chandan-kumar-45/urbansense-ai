@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design tokens live in tailwind.config.ts. This file only holds true globals:
+  base element resets and the one entrance animation used by the live event
+  feed (see components/LiveEventFeed.tsx) — motion is intentionally scoped to
+  that single place rather than scattered across every card/section.
+*/
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-base text-ink font-sans antialiased;
+}
+
+::selection {
+  @apply bg-signal-info/30 text-ink;
+}
+
+/* Thin, low-contrast scrollbars fit a dense instrument-panel UI better than
+   the browser default. */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2c3a52;
+  border-radius: 4px;
+}
+
+@keyframes feed-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feed-item-enter {
+  animation: feed-item-in 220ms ease-out;
+}
+
+:focus-visible {
+  outline: 2px solid #4fa8f7;
+  outline-offset: 2px;
+}

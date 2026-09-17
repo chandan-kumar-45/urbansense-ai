@@ -1,0 +1,23 @@
+# Backend
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.db
+backend/uploads/
+.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Models (weights are too large for git; pull from storage instead)
+models/**/*.pt
+models/**/*.onnx
+models/**/*.engine
+!models/**/.gitkeep
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
